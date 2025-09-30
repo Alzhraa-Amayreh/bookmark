@@ -63,35 +63,35 @@ const siteValidation=()=>{
 
     }
    }
-  //   const sitePasswordvalidation=()=>{
-  //   const regex=/^[A-Z](?=(?:.*[\W_]))[0-9\W_]{7}$/;  // كلمة مرور 8 خانات: تبدأ بحرف كبير، وتحتوي على الأقل رمز واحد، والباقي أرقام أو رموز
-  //   if(!regex.test(input[3].value)){
-  //    input[3].classList.remove("is-valid");
-  //     input[3].classList.add("is-invalid");
-  //      errorMassege[3].textContent="Invalid password, must start with capital lettter and contain at least one sympol ";
-  //     return false;
-  //   }
-  //   else
-  //   {
-  //     input[3].classList.remove("is-invalid") 
-  //    input[3].classList.add("is-valid");
-  //     errorMassege[3].textContent="  ";
-  //    return true;
+    const sitePasswordvalidation=()=>{
+    const regex=/^[A-Z](?=(?:.*[\W_]))[0-9\W_]{7}$/;  // كلمة مرور 8 خانات: تبدأ بحرف كبير، وتحتوي على الأقل رمز واحد، والباقي أرقام أو رموز
+    if(!regex.test(input[3].value)){
+     input[3].classList.remove("is-valid");
+      input[3].classList.add("is-invalid");
+       errorMassege[3].textContent="Invalid password, must start with capital lettter and contain at least one sympol ";
+      return false;
+    }
+    else
+    {
+      input[3].classList.remove("is-invalid") 
+     input[3].classList.add("is-valid");
+      errorMassege[3].textContent="  ";
+     return true;
 
-  //   }
-  //  }
+    }
+   }
 
 
  input[0].addEventListener("input",siteValidation);
  input[1].addEventListener("input",siteURLvalidation);
  input[2].addEventListener("input",siteEmailvalidation);
-//  input[3].addEventListener("input",sitePasswordvalidation);
+ input[3].addEventListener("input",sitePasswordvalidation);
 
 
 bookMarkForm.addEventListener("submit",(e)=>{
   e.preventDefault();
   let isValid=true;
-  if(!(siteValidation()&&siteURLvalidation()&&siteEmailvalidation)){//()&&sitePasswordvalidation())){
+  if(!(siteValidation()&&siteURLvalidation()&&siteEmailvalidation()&&sitePasswordvalidation())){
     isValid=false;
   }
   if(isValid==false)  return;
@@ -134,7 +134,7 @@ bookMarkForm.addEventListener("submit",(e)=>{
                 <td>${site.SitePassword}</td>
                 <td><button class="btn btn-outline-danger" onclick='removeItem(${index})'>Delete</button></td>
                 <td><button class="btn btn-outline-success  " onclick='updateItem(${index}); 'updateItem(${index})'>Edit</button></td>
-               </tr> `                    //delete
+               </tr> `                    
     });result.join(' ');
 
 
